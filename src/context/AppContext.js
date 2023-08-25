@@ -66,7 +66,22 @@ export const AppReducer = (state, action) => {
             };
         case 'CHG_CURRENCY':
             action.type = "DONE";
-            state.currency = action.payload;
+            switch (action.payload) {
+                case "Dollar":
+                    state.currency = "$";
+                    break;
+                case "Pound":
+                    state.currency = "£";
+                    break;
+                case "Euro":
+                    state.currency = "€";
+                    break;
+                case "Rupee":
+                    state.currency = "₹";
+                    break;
+                default:
+                    break;
+            }
             return {
                 ...state
             }
